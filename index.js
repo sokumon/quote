@@ -12,7 +12,7 @@ function start_audio(){
         quote.forEach(function(element, index, array){
             element.text = element.text.replace(/[^a-zA-Z ]/g,"")
             if( audio.currentTime >= (element.start / 1000) && audio.currentTime <= (element.end / 1000) )
-                model_viewver.src = `/models/${element.text}.gltf`
+                model_viewver.src = `./models/${element.text}.gltf`
         });
     }
 }
