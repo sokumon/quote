@@ -11,6 +11,7 @@ function start_audio(){
     audio.ontimeupdate = function(){
         quote.forEach(function(element, index, array){
             element.text = element.text.replace(/[^a-zA-Z ]/g,"")
+            element.text = element.text.toLowerCase()
             if( audio.currentTime >= (element.start / 1000) && audio.currentTime <= (element.end / 1000) )
                 model_viewver.src = `./models/${element.text}.gltf`
         });
