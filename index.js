@@ -11,10 +11,12 @@ function preload_things(){
         preloadLink.href = `./models/${element.text}.gltf`; // Path to your GLTF model
         preloadLink.rel = "preload";
         preloadLink.as = "fetch";
+        preloadLink.crossOrigin = "anonymous";
         document.head.appendChild(preloadLink);
     });
 }
 preload_things()
+
 function start_audio(){
     
     const audio_context = new AudioContext();
@@ -26,7 +28,7 @@ function start_audio(){
         quote.forEach(function(element, index, array){
             element.text = element.text.replace(/[^a-zA-Z ]/g,"")
             element.text = element.text.toLowerCase()
-            if( audio.currentTime >= (element.start / 1000) && audio.currentTime <= (element.end / 1000) )
+            if( audio.currentTime >= (element.start / 1000) && audio.currentTime < (element.end / 1000) )
                 model_viewver.src = `./models/${element.text}.gltf`
         });
     }
