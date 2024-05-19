@@ -10,10 +10,13 @@
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
 <!-- Use it like any other HTML element -->
-
+<script>
+  self.ModelViewerElement = self.ModelViewerElement || {};
+  self.ModelViewerElement.meshoptDecoderLocation = 'https://cdn.jsdelivr.net/npm/meshoptimizer/meshopt_decoder.js';
+</script>
 <model-viewer
   id="word"
-  src="./models/a.gltf"
+  src=""
   loading="eager"
   ar ar-placement="wall" camera-controls touch-action="pan-y" alt="A 3D model of some wall art">
   <center><button id="start" onclick="start_audio()">Start</button></center>
