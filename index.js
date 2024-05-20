@@ -3,12 +3,6 @@ let model_viewver = document.getElementById("word")
 let start_button = document.getElementById("start")
 let all_models = []
 
-let new_quotes = {}
-for(let j=0;j<quotes.length;j++){
-    quotes[j].text = quotes[j].text.replace(/[^a-zA-Z ]/g, "").toLowerCase();
-    new_quotes[quotes[j].text] = [quotes[j].start/1000,quotes[j].end/1000]
-}
-console.log(new_quotes)
 function readBlob(b) {
     return new Promise(function(resolve, reject) {
       const reader = new FileReader();
@@ -22,25 +16,7 @@ function readBlob(b) {
       reader.readAsDataURL(b);
     });
 }
-function preload_things(){
-    // quote.forEach(function(element, index, array){
-    //     element.text = element.text.replace(/[^a-zA-Z ]/g,"")
-    //     element.text = element.text.toLowerCase()
-    //     const preloadLink = document.createElement("link");
-    //     preloadLink.href = `./models/${element.text}.gltf`; // Path to your GLTF model
-    //     preloadLink.rel = "preload";
-    //     preloadLink.as = "fetch";
-    //     preloadLink.crossOrigin = "anonymous";
-    //     document.head.appendChild(preloadLink);
-    // });
 
-    for(let i=0;i<quote.length;i++){
-        quote[i].text = quote[i].text.replace(/[^a-zA-Z ]/g,"")
-        quote[i].text = quote[i].text.toLowerCase()
-        console.log(quote[i].text)
-        // model_viewver.src = `./models/${quote[i].text}.gltf`
-    }
-}
 
 async function preload_things() {
     const promises = quotes.map(async function(element) {
